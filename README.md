@@ -1,24 +1,31 @@
 # EventSplittr
 
-TODO: Write a gem description
+Place a number of images in folders based on the date they were taken.
+This is useful if you're using simple photo management tools like [Unbound][unbound] and you need to place images in folders based on the day they were taken.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'event_splittr'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install event_splittr
+```bash
+$ gem install event_splittr
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+##### Perform a dry-run
+
+```bash
+$ splittr -d /destination_dir path/to/images/*jpg
+```
+
+This will output a list of things that will be moved.
+
+##### Move files
+
+```bash
+$ splittr -f -d /destination_dir path/to/images/*jpg
+```
+
+This will create sub-folders in destination_dir with a format like "2014-05-06", and put all the images taken on that day in that folder.
 
 ## Contributing
 
@@ -27,3 +34,5 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+[unbound]: http://unboundformac.com/
