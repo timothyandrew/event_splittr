@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/../lib/event_splittr")
+
+require 'photo_collection'
+require 'photo'
+require 'optparse'
+
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: splittr [[jpg image paths]"
+
+  opts.on("-f", "Actually move files to the destination. Will only perform a dry run if this option is not passed.") do |f|
+    options[:force] = f
+  end
+
+  opts.on("-dDESTINATION", "--destination=DESTINATION", "Destination directory.") do |d|
+    options[:destination] = d
+  end
+end.parse!
+
+if not File.exists?(options[:destination].to_s)
+  puts "-> A valid destination directiory is required."
+  exit 1
+end
+
+
+
+photos = EventSplittr::PhotoCollection.new(ARGV)
+
+if options[:force]
+  puts "-> Moving files to #{options[:destination]}"
+  photos.split(options[:destination])
+else
+  puts "-> Performing dry run"
+  photos.split_dry_run(options[:destination])
+end
+
+
+
