@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Timothy Andrew"]
   spec.email         = ["mail@timothyandrew.net"]
   spec.summary       = "Split photos into events by date."
-  spec.description   = %q{Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.description   = ""
+  spec.homepage      = "http://github.com/timothyandrew/event_splittr"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
