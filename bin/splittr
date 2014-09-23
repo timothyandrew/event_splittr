@@ -21,7 +21,7 @@ OptionParser.new do |opts|
 end.parse!
 
 if not File.exists?(options[:destination].to_s)
-  puts "-> A valid destination directiory is required."
+  puts "-> A valid destination directory is required."
   exit 1
 end
 
@@ -36,6 +36,3 @@ else
   puts "-> Performing dry run"
   photos.split_dry_run(options[:destination])
 end
-
-
-
